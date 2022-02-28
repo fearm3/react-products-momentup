@@ -6,7 +6,7 @@ import Filter from "./Filter";
 import Sort from "./Sort";
 
 const Home = () => {
-  const { products, total_product_count, filter_options } = apiData;
+  const { products, total_product_count} = apiData;
 
   return (
     <Fragment>
