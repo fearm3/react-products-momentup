@@ -29,7 +29,7 @@ const Detail = () => {
   // console.log(data);
 
   const imgDetail = `/images/${data.image_name}.png`;
-  // console.log(imgDetail);
+  console.log(imgDetail);
   return (
     <>
       {loading ? (
