@@ -3,9 +3,18 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 
+import { productsContext } from "../src/context/products_context";
+import productData from "../src/store/initialState";
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <productsContext.Provider
+      value={{
+        productData,
+      }}
+    >
+      <App />
+    </productsContext.Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

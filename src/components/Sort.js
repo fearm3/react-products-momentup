@@ -2,15 +2,22 @@ import * as React from "react";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { productsContext } from "../context/products_context";
+import { useContext } from "react";
 
 export default function Sort({ item }) {
+  const { productData } = useContext(productsContext);
   const [name, setName] = React.useState([]);
   const [output, setOutput] = React.useState([]);
-  const { sort_options, products } = item;
 
-  products.map((product) => {
-    return setName(product.name);
-  });
+  console.log(productData);
+  // const { sort_options, products } = item;
+
+  // products.map((product) => {
+  //   return setName(product.name);
+  // });
+
+
 
   //Sorting
 
@@ -47,7 +54,7 @@ export default function Sort({ item }) {
   return (
     <div>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel htmlFor="grouped-native-select">Filter Section</InputLabel>
+        <InputLabel htmlFor="grouped-native-select">Sort</InputLabel>
         <Select
           native
           defaultValue=""
