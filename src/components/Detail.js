@@ -26,10 +26,10 @@ const Detail = () => {
     }, 1500);
   }, [id]);
 
-  console.log(data);
+  // console.log(data);
 
   const imgDetail = `/images/${data.image_name}.jpg`;
-  console.log(imgDetail);
+  // console.log(imgDetail);
   return (
     <>
       {loading ? (

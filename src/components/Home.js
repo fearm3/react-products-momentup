@@ -12,7 +12,7 @@ const Home = () => {
   const handleButtonClick = (row) => {
     navigate(`detail/${row.id}`);
   };
-
+  //sort name
   const caseInsensitiveSort = (rowA, rowB) => {
     const a = rowA.name.toLowerCase();
     const b = rowB.name.toLowerCase();
@@ -27,6 +27,7 @@ const Home = () => {
 
     return 0;
   };
+  //sort price
   const priceSort = (rowA, rowB) => {
     const a = rowA.price;
     const b = rowB.price;
