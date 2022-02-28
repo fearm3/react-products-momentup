@@ -28,7 +28,7 @@ const Detail = () => {
 
   // console.log(data);
 
-  const imgDetail = `/images/${data.image_name}.jpg`;
+  const imgDetail = `/images/${data.image_name}.png`;
   // console.log(imgDetail);
   return (
     <>
@@ -51,7 +51,7 @@ const Detail = () => {
           <Avatar
             alt={data.image_name}
             src={imgDetail}
-            sx={{ width: 150, height: 150 }}
+            sx={{ width: 250, height: 250 }}
             style={{ margin: "auto" }}
             // variant="square"
           />
