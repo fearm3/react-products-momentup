@@ -7,7 +7,6 @@ import {
   CircularProgress,
   Typography,
 } from "@mui/material";
-import blazercoat from "./img/blazer-coat.jpg";
 import { apiData } from "../api/apiData";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -29,6 +28,8 @@ const Detail = () => {
 
   console.log(data);
 
+  const imgDetail = `/images/${data.image_name}.jpg`;
+  console.log(imgDetail);
   return (
     <>
       {loading ? (
@@ -48,7 +49,7 @@ const Detail = () => {
         >
           <Avatar
             alt={data.image_name}
-            src={data.image_name}
+            src={imgDetail}
             sx={{ width: 150, height: 150 }}
             style={{ margin: "auto" }}
             variant="square"
