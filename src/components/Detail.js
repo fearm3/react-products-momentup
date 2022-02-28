@@ -19,7 +19,7 @@ const Detail = () => {
 
   useEffect(() => {
     setLoading(true);
-
+    // eslint-disable-next-line
     setData(apiData.products.find((item) => item.id == id));
     setTimeout(() => {
       setLoading(false);
@@ -45,6 +45,7 @@ const Detail = () => {
             display: "flex",
             flexDirection: "column",
             margin: "auto",
+            padding: "2rem",
           }}
         >
           <Avatar
@@ -52,7 +53,7 @@ const Detail = () => {
             src={imgDetail}
             sx={{ width: 150, height: 150 }}
             style={{ margin: "auto" }}
-            variant="square"
+            // variant="square"
           />
 
           <CardContent>
