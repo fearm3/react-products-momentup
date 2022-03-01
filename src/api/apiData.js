@@ -7,7 +7,7 @@ export const apiData = {
       category: "Sweater",
       currency: "USD",
       image_name: "long-sleeve-sweater",
-      color: "White", //bg
+      color: "White", 
     },
     {
       id: 17936,

@@ -2,16 +2,16 @@ import { Alert } from "@mui/material";
 import React, { Fragment } from "react";
 import { apiData } from "../api/apiData";
 import Cards from "./Cards";
-import Filter from "./Filter";
+import Filters from "./Filters";
 import Sort from "./Sort";
 
 const Home = () => {
-  const { products, total_product_count} = apiData;
+  const { products, total_product_count, filter_options } = apiData;
 
   return (
     <Fragment>
-      <Sort />
-      <Filter item={apiData} />
+      <Sort products={products} />
+      <Filters filterOptions={filter_options} />
       <div className="cardGroup">
         {products.map((product) => {
           return <Cards product={product} key={product.id} />;

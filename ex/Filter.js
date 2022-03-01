@@ -4,20 +4,19 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 
 export default function Filter({ item }) {
-  const { filter_options, products } = item;
+  const { filter_options } = item;
+
+  // products.filter((product) => {
+  //   if (product.category === "Sweater") {
+  //   }
+  // });
+
+  console.log("filter_options=>", filter_options);
 
   console.log(filter_options[0].values);
 
-  //   const handleChange = (event) => {
-  //     setNewContinent(event ? event : []);
-  //   };
   return (
     <div>
-      {/* {products.map((product) => {
-        if (filter_options.values === "Sweater") {
-            setSweater()
-        }
-      })} */}
       <FormControl sx={{ m: 1, minWidth: 120 }}>
         <InputLabel htmlFor="grouped-native-select">Filter</InputLabel>
         <Select

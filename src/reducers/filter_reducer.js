@@ -1,5 +1,7 @@
 import {
   LOAD_PRODUCTS,
+  SET_LISTVIEW,
+  SET_GRIDVIEW,
   UPDATE_SORT,
   SORT_PRODUCTS,
   UPDATE_FILTERS,
@@ -23,7 +25,18 @@ const filter_reducer = (state, action) => {
       },
     };
   }
-
+  if (action.type === SET_GRIDVIEW) {
+    return {
+      ...state,
+      grid_view: true,
+    };
+  }
+  if (action.type === SET_LISTVIEW) {
+    return {
+      ...state,
+      grid_view: false,
+    };
+  }
   if (action.type === UPDATE_SORT) {
     return {
       ...state,
@@ -67,14 +80,23 @@ const filter_reducer = (state, action) => {
     let tempProducts = [...all_products];
     //filtering
     //text
-
+    if (text) {
+      tempProducts = tempProducts.filter((product) => {
+        return product.name.toLowerCase().startsWith(text);
+      });
+    }
     //category
     if (category !== "all") {
       tempProducts = tempProducts.filter(
         (product) => product.category === category
       );
     }
-
+    //company
+    if (company !== "all") {
+      tempProducts = tempProducts.filter(
+        (product) => product.company === company
+      );
+    }
     //colors
 
     if (color !== "all") {
@@ -85,7 +107,12 @@ const filter_reducer = (state, action) => {
 
     //price
     tempProducts = tempProducts.filter((product) => product.price <= price);
-
+    //shipping
+    if (shipping) {
+      tempProducts = tempProducts.filter(
+        (product) => product.shipping === true
+      );
+    }
     return { ...state, filtered_products: tempProducts };
   }
   if (action.type === CLEAR_FILTERS) {

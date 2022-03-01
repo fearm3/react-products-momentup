@@ -2,20 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-
-import { productsContext } from "../src/context/products_context";
-import productData from "../src/store/initialState";
+import { ProductsProvider } from "./context/products_context";
+import { FilterProvider } from "./context/filter_context";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <productsContext.Provider
-      value={{
-        productData,
-      }}
-    >
+  <ProductsProvider>
+    <FilterProvider>
       <App />
-    </productsContext.Provider>
-  </React.StrictMode>,
+    </FilterProvider>
+  </ProductsProvider>,
   document.getElementById("root")
 );
 

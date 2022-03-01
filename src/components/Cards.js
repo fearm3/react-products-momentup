@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const Cards = ({ product }) => {
   const navigate = useNavigate();
-  console.log(product);
+  // console.log(product);
   const { name, price, category, currency, image_name, color, id } = product;
 
   return (

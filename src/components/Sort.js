@@ -1,75 +1,90 @@
-import * as React from "react";
-import InputLabel from "@mui/material/InputLabel";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
-import { productsContext } from "../context/products_context";
-import { useContext } from "react";
-
-export default function Sort({ item }) {
-  const { productData } = useContext(productsContext);
-  // const [name, setName] = React.useState([]);
-  // const [output, setOutput] = React.useState([]);
-
-  console.log(productData);
-  // const { sort_options, products } = item;
-
-  // products.map((product) => {
-  //   return setName(product.name);
-  // });
-
-
-
-  //Sorting
-
-  // const handleAlphabetic = (output) => {
-  //   output.sort();
-  //   setOutput([...output]);
-  // };
-  // const handleAlphabeticReverse = (output) => {
-  //   output.sort().reverse();
-  //   setOutput([...output]);
-  // };
-
-  // const handleDate = (output) => {
-  //   output.sort((a, b) =>
-  //     b[3]
-  //       .split("/")
-  //       .reverse()
-  //       .join()
-  //       .localeCompare(a[3].split("/").reverse().join())
-  //   );
-  //   setOutput([...output]);
-  // };
-  // const handleDateReverse = (output) => {
-  //   output.sort((b, a) =>
-  //     b[3]
-  //       .split("/")
-  //       .reverse()
-  //       .join()
-  //       .localeCompare(a[3].split("/").reverse().join())
-  //   );
-  //   setOutput([...output]);
-  // };
-
+import React from "react";
+import { useFilterContext } from "../context/filter_context";
+import styled from "styled-components";
+const Sort = () => {
+  const { sort, updateSort } = useFilterContext();
   return (
-    <div>
-      <FormControl sx={{ m: 1, minWidth: 120 }}>
-        <InputLabel htmlFor="grouped-native-select">Sort</InputLabel>
-        <Select
-          native
-          defaultValue=""
-          id="grouped-native-select"
-          label="Grouping"
+    <Wrapper>
+      <form>
+        <label htmlFor="sort">Sort by</label>
+        <select
+          name="sort"
+          id="sort"
+          className="sort-input"
+          value={sort}
+          onChange={updateSort}
         >
-          <option aria-label="None" value="" />
-
-          <option value={1}>Sweater</option>
-          <option value={2}>Coat</option>
-          <option value={3}>Dress</option>
-
-          <option value={4}>Black</option>
-        </Select>
-      </FormControl>
-    </div>
+          <option value="price-lowest">price (lowest)</option>
+          <option value="price-highest">price (highest)</option>
+          <option value="name-a">name (a-z)</option>
+          <option value="name-z">name (z-a)</option>
+        </select>
+      </form>
+    </Wrapper>
   );
-}
+};
+
+const Wrapper = styled.section`
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  margin-bottom: 2rem;
+  column-gap: 2rem;
+  @media (max-width: 576px) {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 0.75rem;
+    .btn-container {
+      width: 50px;
+    }
+    label {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+  }
+  @media (min-width: 768px) {
+    column-gap: 2rem;
+  }
+  p {
+    text-transform: capitalize;
+    margin-bottom: 0;
+  }
+
+  .btn-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.5rem;
+    button {
+      background: transparent;
+      border: 1px solid var(--clr-black);
+      color: var(--clr-black);
+      width: 1.5rem;
+      border-radius: var(--radius);
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      svg {
+        font-size: 1rem;
+      }
+    }
+    .active {
+      background: var(--clr-black);
+      color: var(--clr-white);
+    }
+  }
+
+  .sort-input {
+    border-color: transparent;
+    font-size: 1rem;
+    text-transform: capitalize;
+    padding: 0.25rem 0.5rem;
+  }
+  label {
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+`;
+
+export default Sort;
