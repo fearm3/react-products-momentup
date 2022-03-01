@@ -8,15 +8,15 @@ import Cards from "./Cards";
 
 const Home = () => {
   const [query, setQuery] = useState("");
-  const { products, total_product_count, filter_options } = apiData;
+  const { products, total_product_count } = apiData;
 
   console.log("query=", query);
 
   return (
     <Fragment>
-      <Box sx={{ maxWidth: 150 }}>
+      <Box sx={{ maxWidth: 150, marginTop: 2 }}>
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Filter Section</InputLabel>
+          <InputLabel id="demo-simple-select-label">Filter</InputLabel>
           <Select
             native
             id="grouped-native-select"
@@ -40,7 +40,7 @@ const Home = () => {
       </Box>
 
       {/* <Sort products={products} /> */}
-      {/* <Filters filterOptions={filter_options} products={products} /> */}
+
       <div className="cardGroup">
         {products
           .filter((item) => {
