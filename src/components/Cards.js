@@ -27,7 +27,7 @@ const Cards = ({ product }) => {
           alt={image_name}
         />
         <CardContent>
-          <Typography gutterBottom variant="h6" component="div">
+          <Typography gutterBottom variant="h6" component="div" color="orange">
             Name : {name}
           </Typography>
           <Typography variant="body2" color="orange">
