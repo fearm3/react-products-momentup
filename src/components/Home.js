@@ -55,6 +55,7 @@ const Home = () => {
             ) {
               return true;
             }
+            return query;
           })
           .map((product) => {
             return <Cards product={product} key={product.id} />;
