@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Alert, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import Filters from "../components/Filters";
 import Sort from "../components/Sort";
 
@@ -20,7 +20,7 @@ const Home = () => {
           <Sort products={products} sort_options={sort_options} />
         </Grid>
       </Grid>
-      <Alert severity="success">All Products : {total_product_count}</Alert>
+      <p>All Products : {total_product_count}</p>
     </Fragment>
   );
 };
