@@ -9,7 +9,7 @@ const Filters = ({ products, filter_options }) => {
   console.log(filtered);
   return (
     <>
-      <Box sx={{ maxWidth: 200, marginTop: 2 }}>
+      <Box sx={{ maxWidth: 200, margin: "auto", marginTop: 2 }}>
         <FormControl fullWidth>
           <InputLabel htmlFor="grouped-native-select">Filter</InputLabel>
           <Select

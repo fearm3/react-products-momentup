@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Alert } from "@mui/material";
+import { Alert, Grid } from "@mui/material";
 import Filters from "../components/Filters";
 import Sort from "../components/Sort";
 
@@ -12,8 +12,14 @@ const Home = () => {
 
   return (
     <Fragment>
-      <Filters products={products} filter_options={filter_options} />
-      <Sort products={products} sort_options={sort_options} />
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid xs={6}>
+          <Filters products={products} filter_options={filter_options} />
+        </Grid>
+        <Grid xs={6}>
+          <Sort products={products} sort_options={sort_options} />
+        </Grid>
+      </Grid>
       <Alert severity="success">All Products : {total_product_count}</Alert>
     </Fragment>
   );

@@ -12,7 +12,7 @@ const Sort = ({ products, sort_options }) => {
   console.log(sort_options);
   return (
     <Fragment>
-      <Box sx={{ maxWidth: 150, marginTop: 2 }}>
+      <Box sx={{ maxWidth: 150, margin: "auto", marginTop: 2 }}>
         <FormControl fullWidth>
           <InputLabel htmlFor="grouped-select" id="demo-simple-select-label">
             Sort
