@@ -7,8 +7,8 @@ import {
   CircularProgress,
   Typography,
 } from "@mui/material";
-import { apiData } from "../api/apiData";
-import React, { useEffect, useState } from "react";
+import { apiData } from "../utils/apiData";
+import React, { Fragment, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Detail = () => {
@@ -16,22 +16,24 @@ const Detail = () => {
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { products } = apiData;
 
   useEffect(() => {
     setLoading(true);
     // eslint-disable-next-line
-    setData(apiData.products.find((item) => item.id == id));
+    setData(products.find((item) => item.id == id));
     setTimeout(() => {
       setLoading(false);
-    }, 1500);
+    }, 1000);
+    // eslint-disable-next-line
   }, [id]);
 
   // console.log(data);
 
   const imgDetail = `/images/${data.image_name}.png`;
-  console.log(imgDetail);
+  // console.log(imgDetail);
   return (
-    <>
+    <Fragment>
       {loading ? (
         <div
           style={{ display: "grid", placeItems: "center", marginTop: "20rem" }}
@@ -75,7 +77,7 @@ const Detail = () => {
           </CardActions>
         </Card>
       )}
-    </>
+    </Fragment>
   );
 };
 

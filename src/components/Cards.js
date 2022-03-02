@@ -1,8 +1,12 @@
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import {
+  Button,
+  CardActionArea,
+  CardActions,
+  Typography,
+  Card,
+  CardMedia,
+  CardContent,
+} from "@mui/material";
 
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +18,7 @@ const Cards = ({ product }) => {
   return (
     <Card
       sx={{
-        width: 400,
+        width: 300,
         margin: 3,
         background: color,
       }}

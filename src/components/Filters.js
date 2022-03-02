@@ -1,15 +1,15 @@
-/* eslint-disable array-callback-return */
 import React, { Fragment, useState } from "react";
 import { Box } from "@mui/system";
 import { FormControl, InputLabel, Select } from "@mui/material";
 
 import Cards from "./Cards";
 
-const Filters = ({ products }) => {
+const Filters = ({ products, filter_options }) => {
   const [filtered, setFiltered] = useState("");
+  console.log(filtered);
   return (
-    <Fragment>
-      <Box sx={{ maxWidth: 150, marginTop: 2 }}>
+    <>
+      <Box sx={{ maxWidth: 200, marginTop: 2 }}>
         <FormControl fullWidth>
           <InputLabel htmlFor="grouped-native-select">Filter</InputLabel>
           <Select
@@ -20,16 +20,17 @@ const Filters = ({ products }) => {
             onChange={(e) => setFiltered(e.target.value)}
           >
             <option aria-label="None" value="" />
-            <optgroup label="Category">
-              <option value={"Sweater"}>Sweater</option>
-              <option value={"Coat"}>Coat</option>
-              <option value={"Dress"}>Dress</option>
-            </optgroup>
-            <optgroup label="Color">
-              <option value={"Black"}>Black</option>
-              <option value={"White"}>White</option>
-              <option value={"Blue"}>Blue</option>
-            </optgroup>
+            {filter_options.map((options, index) => {
+              return (
+                <Fragment key={index}>
+                  <optgroup label={options.name} />
+
+                  <option value={options.values[0]}>{options.values[0]}</option>
+                  <option value={options.values[1]}>{options.values[1]}</option>
+                  <option value={options.values[2]}>{options.values[2]}</option>
+                </Fragment>
+              );
+            })}
           </Select>
         </FormControl>
       </Box>
@@ -49,13 +50,14 @@ const Filters = ({ products }) => {
             ) {
               return true;
             }
+            // eslint-disable-next-line
             return;
           })
           .map((product) => {
             return <Cards product={product} key={product.id} />;
           })}
       </div>
-    </Fragment>
+    </>
   );
 };
 
